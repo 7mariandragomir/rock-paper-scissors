@@ -50,10 +50,6 @@ function btnPlayerChoice(e) {
 function playRound(player, computer) {
     if (player === computer) {
         alert("This round was a tie!");
-        playerScore++;
-        playerScoreDisplay.innerHTML = playerScore;
-        computerScore++;
-        computerScoreDisplay.innerHTML = computerScore;
         gameCheck(roundCounter);
     } else if 
     (player == "rock" && computer == "scissors" ||
