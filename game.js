@@ -45,14 +45,14 @@ function btnPlayerChoice(e) {
 function playRound(player, computer) {
     if (player === computer) 
     {
-        alert("This round was a tie!");
+        displayMessage("This round was a tie!");
         gameCheck();
     } else if 
     (player == "rock" && computer == "scissors" ||
     player == "paper" && computer == "rock" || 
     player == "scissors" && computer == "paper") 
     {
-        alert("You won this round!");
+        displayMessage("You won this round!");
         playerScore++;
         playerScoreDisplay.innerHTML = playerScore;
         gameCheck();
@@ -61,7 +61,7 @@ function playRound(player, computer) {
     player == "paper" && computer == "scissors" ||
     player == "scissors" && computer == "rock") 
     {
-        alert("Snap! You lost this round...")
+        displayMessage("Snap! You lost this round...")
         computerScore++;
         computerScoreDisplay.innerHTML = computerScore;
         gameCheck();
@@ -81,13 +81,13 @@ function gameCheck() {
     console.log(roundCounter);
 
     if (roundCounter == 6 && playerScore > computerScore) {
-        alert("Game's done. Good job, you won!");
+        displayMessage("Game's done. Good job, you won!");
         resetGame();
     } else if (roundCounter == 6 && playerScore < computerScore) {
-        alert("Game's done. You lost. Damn...");
+        displayMessage("Game's done. You lost. Damn...");
         resetGame();
     } else if (roundCounter ==  6 && playerScore === computerScore) {
-        alert("Game's done. It was a tie, what were the odds?!");
+        displayMessage("Game's done. It was a tie, what were the odds?!");
         resetGame();
     } 
 }
@@ -98,4 +98,14 @@ function resetGame() {
     computerScore = 0;
     computerScoreDisplay.innerHTML = computerScore;
     roundCounter = 0;
+}
+
+
+let messagesBox = document.querySelector("#messages"); 
+const gameMessage = document.createElement("span");
+gameMessage.style.display = "block";
+messagesBox.appendChild(gameMessage);
+
+function displayMessage(msg) {
+    gameMessage.innerText = msg;
 }
